@@ -372,8 +372,10 @@ export default class Keyboard {
             const rightElem0 = right.split('\n')[0];
             const leftSubStr = left.split('\n').reverse()[0].length;
             const rightElem1 = right.split('\n')[1].length;
-            if (!rightElem0 || rightElem1 < leftSubStr) {
-              caretPosition += rightElem1 + rightElem0.length + 1;
+            if (!rightElem0) {
+              caretPosition += rightElem1 < leftSubStr
+                ? rightElem1 + rightElem0.length + 1
+                : leftSubStr + 1;
             } else {
               caretPosition += rightElem0.length + leftSubStr + 1;
             }
