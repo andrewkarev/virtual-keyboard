@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $background-color;
+  font-size: 16px;
+  font-family: 'Space Mono', monospace;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 910px;
+  color: $text-color;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+.language {
+  margin-bottom: 20px;
+  font-style: italic;
+  color: $text-color-additional;
+}
+
+.bold {
+  font-size: 18px;
+  font-weight: 700;
+  color: $text-color-additional-1;
+}
+
+.textarea {
+  width: 100%;
+  height: 250px;
+  padding: 10px;
+  margin: 15px 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 20px;
+  resize: none;
+  background-color:transparent;
+  border: 1.5px solid $text-color;
+  border-radius: 5px;
+  color: $text-color-additional-2;
+  outline: none;
+}
+
+.textarea:focus {
+  background-color: $textarea-bgcolor;
+}
+
+.textarea::placeholder {
+  color: $text-color-additional;
+}
+
+.keyboard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+  background: $keyboard-color;
+  border-radius: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  user-select: none;
+
+		&__row {
+      display: flex;
+      gap: 10px;
+      height: 50px;
+		}
+
+		&__key {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      background: $key-color;
+      color: $symbol-color;
+      border: 1.5px solid $border-color;
+      box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      &.active {
+        box-shadow: inset 0px 1px 2px 1px rgba(0, 0, 0, 0.9);
+        background-color: $text-color-additional-2;
+      }
+      &.active .symbol {
+        transform: translateY(2px);
+      }
+      &.active .symbol-secondary {
+        transform: translateY(2px);
+      }
+		}
+}
+
+[data-code="Delete"] {
+  .symbol {
+    font-size: 14px;
+  }
+}
+
+[data-code="Tab"],
+[data-code="CapsLock"],
+[data-code="ShiftLeft"],
+[data-code="Backspace"],
+[data-code="Enter"],
+[data-code="ShiftRight"]  {
+  flex-direction: row;
+  font-weight: 700;
+}
+
+[data-code="Tab"],
+[data-code="CapsLock"],
+[data-code="ShiftLeft"] {
+  width: 80px;
+  justify-content: start;
+  padding-left: 10px;
+}
+
+[data-code="CapsLock"] {
+  width: 90px;
+}
+
+[data-code="ShiftLeft"] {
+  width: 100px;
+}
+
+[data-code="Backspace"],
+[data-code="Enter"],
+[data-code="ShiftRight"] {
+  flex-grow: 1;
+  justify-content: end;
+  padding-right: 10px;
+}
+
+[data-code="ControlLeft"],
+[data-code="ControlRight"],
+[data-code="AltLeft"],
+[data-code="AltRight"] {
+  width: 70px;
+  .symbol {
+    font-size: 14px;
+  }
+}
+
+[data-code="Space"] {
+  flex-grow: 1;
+}
+
+[data-code="ControlRight"] {
+  width: 60px;
+}
+
+.symbol-secondary {
+  font-size: 20px;
+  transition: all 0.2s ease-out;
+  &.inactive {
+    font-weight: 700;
+    font-size: 14px;
+    color: $text-color-additional;
+  }
+}
+
+.symbol {
+  font-size: 20px;
+  transition: all 0.2s ease-out;
+  &.inactive {
+    font-weight: 700;
+    font-size: 14px;
+    color: $text-color-additional;
+  }
+}

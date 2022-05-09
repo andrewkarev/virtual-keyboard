@@ -1,0 +1,50 @@
+.modal-window {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(28, 28, 28, 0.8);
+
+  &__card {
+    background-color: $background-color;
+    padding: 20px;
+    border: 5px solid $text-color;
+    border-radius: 15px;
+  }
+
+  &__title {
+    text-align: center;
+    color: $text-color-additional-2;
+  }
+
+  &__list {
+    margin: 10px 0;
+    list-style-type: none;
+  }
+
+  &__list-item {
+    color: $text-color-additional-2;
+  }
+
+  &__close-btn {
+    padding-top: 5px;
+    text-align: center;
+    color: $text-color;
+  }
+
+  &__close-btn-text:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &.disabled {
+    display: none;
+  }
+}
+
+.arrow {
+  font-weight: 900;
+}
