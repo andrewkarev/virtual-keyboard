@@ -232,10 +232,22 @@ export default class Keyboard {
       currentKey.symbol = keyAlt.symbol;
       currentKey.shift = keyAlt.shift;
 
+      // if key both contain alternative symbol and not depending on the layout
+      if (elem.code.match(/(Semicolon|Quote|Period|Comma)/)) {
+        if (languageKeys[currentIndex] === 'en') {
+          currentKey.symbolSecondary = createEl('p', ['symbol-secondary', 'inactive'], currentKey.shift);
+          currentKey.symbolsContainer.prepend(currentKey.symbolSecondary);
+        } else {
+          currentKey.symbolSecondary.remove();
+          delete currentKey.symbolSecondary;
+          currentKey.symbolMain.classList.remove('inactive');
+        }
+      }
       // If key contains alternative symbol
       if (elem.symbolSecondary) {
         currentKey.symbolSecondary.innerHTML = elem.shift;
       }
+
       currentKey.symbolMain.innerHTML = elem.symbol;
     });
 
