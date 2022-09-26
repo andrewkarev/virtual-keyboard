@@ -17,7 +17,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1b1b32;
   font-size: 16px;
   font-family: "Space Mono", monospace;
